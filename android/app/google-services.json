@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "586664850230",
+    "project_id": "futurelands-bd386",
+    "storage_bucket": "futurelands-bd386.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:586664850230:android:5c174b94622873c399f997",
+        "android_client_info": {
+          "package_name": "com.example.home_land"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "586664850230-7orrankncjg5ajpqjq4grl532h319hko.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgdzhDpSvNkwpT7c1Agf2t-5K7SmPb9qA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "586664850230-7orrankncjg5ajpqjq4grl532h319hko.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
