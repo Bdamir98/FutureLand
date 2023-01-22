@@ -29,7 +29,5 @@ extension extString on String {
     return passwordRegExp.hasMatch(this);
   }
 
-  bool get isNotNull {
-    return this != null;
-  }
+
 }

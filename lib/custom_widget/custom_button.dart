@@ -3,8 +3,8 @@ import 'package:home_land/constant.dart';
 
 class CustomButton extends StatelessWidget {
   CustomButton({super.key, this.buttonTitle, this.buONpress});
-  String? buttonTitle;
-  VoidCallback? buONpress;
+ final String? buttonTitle;
+ final VoidCallback? buONpress;
   @override
   Widget build(BuildContext context) {
     return SizedBox(

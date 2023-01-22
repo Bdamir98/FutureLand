@@ -8,9 +8,9 @@ import 'package:home_land/custom_widget/custom_toast.dart';
 import 'package:home_land/screen/user_login_registration/otp_code_verification.dart';
 
 class UserphoneNumberVerify extends StatelessWidget {
+  final Map<String, dynamic> nidSnapshot;
+  final TextEditingController Phonenumber = TextEditingController();
   UserphoneNumberVerify({super.key, required this.nidSnapshot});
-  Map<String, dynamic> nidSnapshot;
-  TextEditingController Phonenumber = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +65,7 @@ class UserphoneNumberVerify extends StatelessWidget {
                       buONpress: () {
                         if (nidSnapshot['Phone_Number'] ==
                             Phonenumber.text.toString()) {
-                          ctrl.acceptPhoneNumber(Phonenumber.text.toString());
+                          ctrl.acceptPhoneNumber(Phonenumber.text);
                           Navigator.of(context).push(
                             MaterialPageRoute(
                               builder: (context) =>

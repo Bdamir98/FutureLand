@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:home_land/constant.dart';
 import 'package:home_land/custom_widget/custom_text.dart';
 import 'package:home_land/provider/auth_provider.dart';
+import 'package:home_land/provider/firebase_database_provider.dart';
 import 'package:home_land/screen/drawer_item_page/create_post/all_my_property.dart';
 import 'package:home_land/screen/drawer_item_page/profile_page/userProfile.dart';
 import 'package:provider/provider.dart';
@@ -14,6 +15,7 @@ class DrawerItemList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final userProvider = Provider.of<AuthProvider>(context);
+    final firebaseProvider = Provider.of<MyNidCardData>(context);
     return Drawer(
       backgroundColor: canvasColor,
       child: Column(
@@ -77,17 +79,22 @@ class DrawerItemList extends StatelessWidget {
             title: Text('Home'),
             onTap: () {},
           ),
-          ListTile(
-            leading: Icon(
-              Icons.person,
-              color: Colors.deepOrange,
-            ),
-            title: Text('Profile'),
-            onTap: () {
-              Navigator.pop(context);
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => UserProfile(),
-              ));
+          Consumer<MyNidCardData>(
+            builder: (context, value, child) {
+              return ListTile(
+                leading: Icon(
+                  Icons.person,
+                  color: Colors.deepOrange,
+                ),
+                title: Text('Profile'),
+                onTap: () {
+                  value.userinfoByPhone();
+                  Navigator.pop(context);
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => UserProfile(),
+                  ));
+                },
+              );
             },
           ),
           ListTile(

@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-
 import 'package:flutterfire_ui/auth.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:home_land/constant.dart';
 import 'package:home_land/custom_widget/custom_button.dart';
 import 'package:home_land/custom_widget/custom_text_field.dart';
 import 'package:home_land/screen/drawer_item_page/home_page/home_page.dart';
-import 'package:home_land/screen/user_login_registration/user_view_information.dart';
 
 class UserLoginPhoneOTP extends StatelessWidget {
+ final TextEditingController verificationCode = TextEditingController();
+ final String reSendOTP;
   UserLoginPhoneOTP({super.key, required this.reSendOTP});
-  TextEditingController verificationCode = TextEditingController();
-  String reSendOTP;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

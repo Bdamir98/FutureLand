@@ -8,15 +8,17 @@ import 'package:home_land/provider/auth_provider.dart';
 import 'package:home_land/screen/drawer_item_page/home_page/home_page.dart';
 import 'package:provider/provider.dart';
 
+// ignore: must_be_immutable
 class UserEmailPasswordRegistration extends StatelessWidget {
-  UserEmailPasswordRegistration({super.key, required this.nidSnapshot});
+  final Map<String, dynamic> nidSnapshot;
 
-  Map<String, dynamic> nidSnapshot;
-  TextEditingController nidData = TextEditingController();
-  TextEditingController email = TextEditingController();
-  TextEditingController pass = TextEditingController();
+  final TextEditingController nidData = TextEditingController();
+  final TextEditingController email = TextEditingController();
+  final TextEditingController pass = TextEditingController();
   var Gender;
-  CollectionReference users = FirebaseFirestore.instance.collection('Users');
+  final CollectionReference users =
+      FirebaseFirestore.instance.collection('Users');
+  UserEmailPasswordRegistration({super.key, required this.nidSnapshot});
   Future<void> addUser() async {
     String _name = nidSnapshot['Name'];
     String _fatherName = nidSnapshot['Father_Name'];

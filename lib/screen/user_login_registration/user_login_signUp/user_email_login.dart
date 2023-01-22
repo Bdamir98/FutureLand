@@ -1,43 +1,15 @@
-
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:home_land/constant.dart';
 import 'package:home_land/custom_widget/custom_button.dart';
 import 'package:home_land/custom_widget/custom_text_field.dart';
 import 'package:home_land/custom_widget/custom_toast.dart';
-import 'package:flutter/material.dart';
 import 'package:home_land/screen/user_login_registration/user_forgotPassword.dart';
 
 class UserEmailLogin extends StatelessWidget {
+ final TextEditingController emailCtrl = TextEditingController();
+ final TextEditingController passwordCtrl = TextEditingController();
   UserEmailLogin({super.key});
-  TextEditingController emailCtrl = TextEditingController();
-  TextEditingController passwordCtrl = TextEditingController();
-  void signInUser(BuildContext context) async {
-    String email = emailCtrl.text.trim();
-    String password = passwordCtrl.text.trim();
-    if (email.isEmpty && password.isEmpty) {
-      contextMessageToast('Enter Your Email and Password');
-    } else if (email.isEmpty) {
-      contextMessageToast('Enter Your Email');
-    } else if (password.isEmpty) {
-      contextMessageToast('Enter Your Password');
-    } else {
-      try {
-        UserCredential userCredential = await FirebaseAuth.instance
-            .signInWithEmailAndPassword(email: email, password: password);
-        if (userCredential.user != null) {
-          Navigator.pop(context);
-        }
-      } on FirebaseAuthException catch (ex) {
-        if (ex.code == 'user-not-found') {
-          contextMessageToast('Invalid Email');
-        } else if (ex.code == 'wrong-password') {
-          contextMessageToast('Password Is Incorrect');
-        }
-      }
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -78,5 +50,31 @@ class UserEmailLogin extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  void signInUser(BuildContext context) async {
+    String email = emailCtrl.text.trim();
+    String password = passwordCtrl.text.trim();
+    if (email.isEmpty && password.isEmpty) {
+      contextMessageToast('Enter Your Email and Password');
+    } else if (email.isEmpty) {
+      contextMessageToast('Enter Your Email');
+    } else if (password.isEmpty) {
+      contextMessageToast('Enter Your Password');
+    } else {
+      try {
+        UserCredential userCredential = await FirebaseAuth.instance
+            .signInWithEmailAndPassword(email: email, password: password);
+        if (userCredential.user != null) {
+          Navigator.pop(context);
+        }
+      } on FirebaseAuthException catch (ex) {
+        if (ex.code == 'user-not-found') {
+          contextMessageToast('Invalid Email');
+        } else if (ex.code == 'wrong-password') {
+          contextMessageToast('Password Is Incorrect');
+        }
+      }
+    }
   }
 }

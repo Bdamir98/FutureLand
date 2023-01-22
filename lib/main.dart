@@ -1,15 +1,14 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:home_land/auth_gate.dart';
 import 'package:home_land/constant.dart';
 import 'package:home_land/firebase_options.dart';
 import 'package:home_land/provider/land_post_provider.dart';
-import 'package:home_land/screen/introduction_screen/splash_screen.dart';
 import 'package:provider/provider.dart';
 
 import 'provider/auth_provider.dart';
 import 'provider/firebase_database_provider.dart';
 import 'screen/drawer_item_page/home_page/home_page.dart';
+import 'services/auth_services.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -46,10 +45,10 @@ class MyApp extends StatelessWidget {
         ),
         outlinedButtonTheme: OutlinedButtonThemeData(
             style: OutlinedButton.styleFrom(
+                foregroundColor: Colors.white,
                 minimumSize: Size.fromHeight(50),
                 textStyle: TextStyle(fontSize: 14),
-                backgroundColor: purpleColor,
-                primary: Colors.white)),
+                backgroundColor: purpleColor)),
         hintColor: Colors.white,
         inputDecorationTheme: InputDecorationTheme(
           floatingLabelStyle: TextStyle(color: Colors.white),
@@ -76,7 +75,9 @@ class MyApp extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      //home: AllMyProperty(),
+      home: WillPopScope(
+          onWillPop: () => AuthService.signOut(), child: HomePage()),
     );
   }
 }

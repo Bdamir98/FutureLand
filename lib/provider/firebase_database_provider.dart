@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:home_land/services/auth_services.dart';
 
 class MyNidCardData extends ChangeNotifier {
   dynamic _value;
@@ -30,5 +30,14 @@ class MyNidCardData extends ChangeNotifier {
         }
       });
     });
+  }
+
+
+
+
+  Map<String, dynamic>? userData;
+  userinfoByPhone() async {
+    userData = await AuthService.getUserByPhone();
+    notifyListeners();
   }
 }

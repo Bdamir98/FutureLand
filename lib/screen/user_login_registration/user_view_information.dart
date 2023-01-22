@@ -8,7 +8,7 @@ import 'package:intl/intl.dart';
 
 class NidCardResultView extends StatelessWidget {
   NidCardResultView({super.key, required this.nidSnapshot});
-  Map<String, dynamic> nidSnapshot;
+final  Map<String, dynamic> nidSnapshot;
 
   @override
   Widget build(BuildContext context) {

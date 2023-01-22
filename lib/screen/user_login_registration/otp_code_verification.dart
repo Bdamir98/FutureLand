@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutterfire_ui/auth.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:home_land/constant.dart';
@@ -8,10 +7,10 @@ import 'package:home_land/custom_widget/custom_text_field.dart';
 import 'package:home_land/screen/user_login_registration/user_view_information.dart';
 
 class OtpCOdeVerification extends StatelessWidget {
-  OtpCOdeVerification({super.key, required this.nidSnapshot});
+ final Map<String, dynamic> nidSnapshot;
 
-  Map<String, dynamic> nidSnapshot;
-  TextEditingController verificationCode = TextEditingController();
+ final TextEditingController verificationCode = TextEditingController();
+  OtpCOdeVerification({super.key, required this.nidSnapshot});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

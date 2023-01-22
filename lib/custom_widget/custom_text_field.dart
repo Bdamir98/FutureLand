@@ -19,9 +19,9 @@ class CustomFormField extends StatelessWidget {
   final IconData? icon;
   final IconData? icons;
   final String hintText;
-  ValueChanged<String>? onChanged;
+  final ValueChanged<String>? onChanged;
   final TextInputType? keyboard;
-  String? Valuename, valueCatch;
+  final String? Valuename, valueCatch;
   final List<TextInputFormatter>? inputFormatters;
   final String? Function(String?)? validator;
   final TextEditingController? controller;
@@ -31,9 +31,6 @@ class CustomFormField extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: TextFormField(
         keyboardType: keyboard,
-        onSaved: (valueCatch) {
-          Valuename = valueCatch;
-        },
         onChanged: (value) {},
         controller: controller,
         inputFormatters: inputFormatters,

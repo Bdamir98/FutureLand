@@ -2,9 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:home_land/constant.dart';
-import 'package:home_land/screen/drawer_item_page/home_page/component/latest_property.dart';
-import 'package:home_land/screen/drawer_item_page/home_page/component/latest_property_item.dart';
-import 'package:home_land/screen/drawer_item_page/home_page/component/name_avatar.dart';
+import 'package:home_land/screen/drawer_item_page/all%20real%20estate/land/category_land_view.dart';
+import 'package:home_land/screen/drawer_item_page/all%20real%20estate/land/component/all_new_land_list.dart';
+import 'package:home_land/screen/drawer_item_page/home_page/component/search_filter.dart';
 import 'package:home_land/screen/drawer_menu/drawer_item_list.dart';
 import 'package:home_land/screen/user_login_registration/signIn_signOut.dart';
 
@@ -82,15 +82,12 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.only(top: 65),
             child: Column(
               children: [
-                CustomNamePhoto(),
+                SearchBoxFilter(),
                 SizedBox(
                   height: 10,
                 ),
-                LatestProperty(),
-                SizedBox(
-                  height: 10,
-                ),
-                LatestPropertyItemList(),
+                CategoryLandPage(),
+                AllnewLandLIst(),
               ],
             ),
           ),
